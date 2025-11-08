@@ -1,0 +1,37 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+  {
+    date: "Enero 2024 - Actualidad",
+    title: "Desarrollador Fullstack",
+    company: "Clickedu (Sanoma Learning)",
+    description: `
+      Planificación e implementación de la infraestructura para nuevos proyectos basados en Symfony 6.4 y Angular 20.
+      Desarrollo y mantenimiento de la aplicación legacy, creación de un repositorio de componentes (NX) con Storybook y colaboración con equipos UX/UI para definir componentes reutilizables.
+      Miembro del comité de arquitectura encargado de definir la estructura base de los diferentes proyectos.`,
+    link: "https://clickedu.net/",
+  },
+  {
+    date: "Junio 2020 - Diciembre 2023",
+    title: "Desarrollador Fullstack",
+    company: "Universidad Isabel I",
+    description: `
+      Desarrollo y mantenimiento de la aplicación legacy en PHP 5.4 y creación de nuevas funcionalidades en Symfony 4.4 y Vue 2. 
+      Integración de APIs externas y despliegue en diferentes entornos usando GitFlow. 
+      Desarrollo y mantenimiento de un campus virtual para la Fundación ASTI (TalentGirl) e integración de servicios como Stripe, Bizneo e ISIC.
+    `,
+    link: "https://www.ui1.es",
+  },
+];
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li>
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

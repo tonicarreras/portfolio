@@ -1,0 +1,48 @@
+---
+type Variant = "success" | "warning" | "error" | "info" | "default"
+
+const { variant = "success" }: { variant?: Variant } = Astro.props
+
+const variants: Record<Variant, { gradient: string; inner: string }> = {
+  success: {
+    gradient:
+      "bg-[conic-gradient(from_90deg_at_50%_50%,#51E4B8_0%,#21554E_50%,#51E4B8_100%)]",
+    inner: "text-green-800 bg-green-100 dark:bg-gray-800 dark:text-white/80",
+  },
+  warning: {
+    gradient:
+      "bg-[conic-gradient(from_90deg_at_50%_50%,#FACC15_0%,#854D0E_50%,#FACC15_100%)]",
+    inner: "text-yellow-800 bg-yellow-100 dark:bg-gray-800 dark:text-yellow-200",
+  },
+  error: {
+    gradient:
+      "bg-[conic-gradient(from_90deg_at_50%_50%,#F87171_0%,#7F1D1D_50%,#F87171_100%)]",
+    inner: "text-red-800 bg-red-100 dark:bg-gray-800 dark:text-red-200",
+  },
+  info: {
+    gradient:
+      "bg-[conic-gradient(from_90deg_at_50%_50%,#38BDF8_0%,#0C4A6E_50%,#38BDF8_100%)]",
+    inner: "text-sky-800 bg-sky-100 dark:bg-gray-800 dark:text-sky-200",
+  },
+  default: {
+    gradient:
+      "bg-[conic-gradient(from_90deg_at_50%_50%,#D1D5DB_0%,#6B7280_50%,#D1D5DB_100%)]",
+    inner: "text-gray-800 bg-gray-100 dark:bg-gray-800 dark:text-gray-300",
+  },
+}
+
+const selected = variants[variant] ?? variants.default
+---
+
+<div class="flex items-center">
+  <span class="relative inline-flex overflow-hidden rounded-full p-[1px]">
+    <span
+      class={`absolute inset-[-1000%] animate-[spin_2s_linear_infinite] ${selected.gradient}`}
+    ></span>
+    <div
+      class={`inline-flex items-center justify-center w-full px-3 py-1 text-sm rounded-full cursor-pointer backdrop-blur-3xl whitespace-nowrap ${selected.inner}`}
+    >
+      <slot />
+    </div>
+  </span>
+</div>
