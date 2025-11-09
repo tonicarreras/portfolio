@@ -1,0 +1,64 @@
+---
+import ProfileCheck from "@/components/icons/ProfileCheck.astro";
+import MainContainer from "@/components/MainContainer.astro";
+import TitleSection from "@/components/TitleSection.astro";
+import Layout from "@/layouts/Layout.astro";
+const personalImageAlt = "Antonio Carreras";
+---
+
+<Layout
+  description="Conoce a Toni Carreras más allá del código — desarrollador Fullstack, curioso por naturaleza y amante del aprendizaje constante."
+  title="Sobre mí | Toni Carreras | Portfolio"
+>
+  <MainContainer class="py-16 md:py-36">
+    <TitleSection>
+      <ProfileCheck class="size-8" />
+      Sobre mí
+    </TitleSection>
+
+    <article
+      class="flex flex-col items-center justify-center gap-10 text-gray-700 dark:text-gray-300 md:flex-row"
+    >
+      <div
+        class="order-2 md:order-1 max-w-xl [&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty"
+      >
+        <p>
+          Siempre me ha fascinado cómo las ideas se transforman en experiencias
+          que la gente puede usar, sentir y disfrutar. Para mí, el desarrollo va
+          más allá del código: es una forma de <strong>dar forma a conceptos</strong>
+          y hacerlos reales.
+        </p>
+
+        <p>
+          Me considero una persona <strong>curiosa y meticulosa</strong>. Disfruto
+          aprendiendo nuevas herramientas, mejorando procesos y entendiendo el
+          porqué de las cosas. Valoro los entornos donde prima la <strong>colaboración</strong>,
+          el <strong>diseño bien pensado</strong> y la <strong>comunicación clara</strong>.
+        </p>
+
+        <p>
+          En los últimos años he aprendido que escribir buen software no trata
+          solo de dominar un stack, sino de construir <strong>con propósito,
+          empatía y criterio</strong>. Me gusta pensar que el código puede ser
+          tan elegante como funcional.
+        </p>
+
+        <p>
+          Fuera del trabajo, me encontrarás escuchando música, haciendo deporte
+          o explorando nuevas formas de creatividad. Me inspiran los proyectos
+          que mezclan <strong>tecnología, arte y personas</strong>.
+        </p>
+      </div>
+
+      <!-- Imagen -->
+      <img
+        width="200"
+        height="200"
+        src="/tonicarreras.webp"
+        alt={personalImageAlt}
+        class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
+        style="object-position: 50% 50%"
+      />
+    </article>
+  </MainContainer>
+</Layout>
