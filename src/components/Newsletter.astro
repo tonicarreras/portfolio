@@ -200,60 +200,70 @@ const posts = [
 </style>
 
 <script>
-  const modal = document.getElementById("post-modal");
-  const modalClose = document.getElementById("modal-close");
-  const openButtons = document.querySelectorAll("[data-modal-open]");
+  function initModal() {
+    const modal = document.getElementById("post-modal");
+    const modalClose = document.getElementById("modal-close");
+    const openButtons = document.querySelectorAll("[data-modal-open]");
 
-  // Open modal
-  openButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      const target = e.currentTarget as HTMLElement;
-      const title = target.dataset.postTitle || "";
-      const content = target.dataset.postContent || "";
-      const date = target.dataset.postDate || "";
-      const readTime = target.dataset.postReadtime || "";
-      const category = target.dataset.postCategory || "";
+    if (!modal || !modalClose || openButtons.length === 0) return;
 
-      // Populate modal
-      document.getElementById("modal-title")!.textContent = title;
-      document.getElementById("modal-content")!.textContent = content;
-      document.getElementById("modal-category")!.textContent = category;
-      document.getElementById("modal-readtime")!.textContent =
-        `${readTime} de lectura`;
+    // Open modal
+    openButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        const target = e.currentTarget as HTMLElement;
+        const title = target.dataset.postTitle || "";
+        const content = target.dataset.postContent || "";
+        const date = target.dataset.postDate || "";
+        const readTime = target.dataset.postReadtime || "";
+        const category = target.dataset.postCategory || "";
 
-      const dateObj = new Date(date);
-      document.getElementById("modal-date")!.textContent =
-        dateObj.toLocaleDateString("es-ES", {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        });
+        // Populate modal
+        document.getElementById("modal-title")!.textContent = title;
+        document.getElementById("modal-content")!.textContent = content;
+        document.getElementById("modal-category")!.textContent = category;
+        document.getElementById("modal-readtime")!.textContent =
+          `${readTime} de lectura`;
 
-      // Show modal
-      modal?.classList.remove("hidden");
-      document.body.style.overflow = "hidden";
+        const dateObj = new Date(date);
+        document.getElementById("modal-date")!.textContent =
+          dateObj.toLocaleDateString("es-ES", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          });
+
+        // Show modal
+        modal?.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      });
     });
-  });
 
-  // Close modal
-  const closeModal = () => {
-    modal?.classList.add("hidden");
-    document.body.style.overflow = "";
-  };
+    // Close modal
+    const closeModal = () => {
+      modal?.classList.add("hidden");
+      document.body.style.overflow = "";
+    };
 
-  modalClose?.addEventListener("click", closeModal);
+    modalClose?.addEventListener("click", closeModal);
 
-  // Close on overlay click
-  modal?.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      closeModal();
-    }
-  });
+    // Close on overlay click
+    modal?.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
 
-  // Close on Escape key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !modal?.classList.contains("hidden")) {
-      closeModal();
-    }
-  });
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !modal?.classList.contains("hidden")) {
+        closeModal();
+      }
+    });
+  }
+
+  // Inicializar al cargar la página
+  initModal();
+
+  // Reinicializar después de cada navegación de Astro
+  document.addEventListener("astro:page-load", initModal);
 </script>
