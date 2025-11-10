@@ -6,14 +6,14 @@ import SystemIcon from "./icons/System.astro";
 const THEMES = ["Light", "Dark", "System"];
 ---
 
-<span class="relative inline-flex overflow-hidden rounded-full p-[1px]">
+<span class="relative inline-flex overflow-hidden rounded-full p-[1px] ">
   <span
     class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#38BDF8_0%,#0C4A6E_50%,#38BDF8_100%)]"
   ></span>
   <button
     transition:persist
     id="theme-toggle-btn"
-    class="inline-flex items-center justify-center w-full px-3 py-1 text-sm rounded-full cursor-pointer backdrop-blur-3xl whitespace-nowrap text-sky-800 bg-sky-100 dark:bg-gray-800 dark:text-sky-200 border-none hover:scale-105 transition relative"
+    class="inline-flex items-center justify-center w-full px-3 py-1 text-sm rounded-full cursor-pointer backdrop-blur-3xl whitespace-nowrap text-sky-800 bg-[#0a2540] hover:bg-blue-900 dark:bg-gray-800 dark:text-sky-200 border-none hover:scale-105 transition relative"
   >
     <span class="sr-only">Elige el tema</span>
     <SunIcon id="light" class="theme-toggle-icon size-5 transition-all" />
@@ -36,7 +36,7 @@ const THEMES = ["Light", "Dark", "System"];
   <ul>
     {
       THEMES.map((theme) => (
-        <li class="themes-menu-option px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm">
+        <li class="themes-menu-option text-gray-800 dark:text-white px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm">
           {theme}
         </li>
       ))
@@ -83,7 +83,6 @@ const THEMES = ["Light", "Dark", "System"];
       const isActive = element.id === themePreference;
       element.style.scale = isActive ? "1" : "0";
       
-      // Aplicar colores según el tema activo
       if (isActive) {
         if (element.id === "light") {
           element.style.color = "#fbbf24"; // amarillo para sol

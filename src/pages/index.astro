@@ -3,10 +3,12 @@ import Layout from "@/layouts/Layout.astro";
 
 import MainContainer from "@/components/MainContainer.astro";
 import Hero from "@/components/Hero.astro";
+import Newsletter from "@/components/Newsletter.astro";
 ---
 
 <Layout title="Inicio | Toni Carreras | Portfolio" description="">
-  <MainContainer class="py-16 md:py-36">
+  <MainContainer class="py-16 md:py-36 flex flex-col gap-8">
     <Hero />
+    <Newsletter/>
   </MainContainer>
 </Layout>

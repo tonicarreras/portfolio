@@ -6,7 +6,7 @@ import MailIcon from "@/components/icons/Mail.astro";
 import SocialPill from "@/components/SocialPill.astro";
 ---
 
-<div class="max-w-xl min-h-[calc(100vh-128px)]">
+<div class="max-w-xl">
   <div class="flex flex-col gap-6 mb-4">
     <div class="flex">
       <img
@@ -24,10 +24,10 @@ import SocialPill from "@/components/SocialPill.astro";
     </h1>
 
     <p
-      class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
+      class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-blue-800 [&>strong]:font-semibold dark:text-gray-300"
     >
-      Desarrollador <strong>Full Stack</strong> con más de 5 años de experiencia en
-      el desarrollo de aplicaciones web escalables. Especializado en <strong
+      Desarrollador <strong>Full Stack</strong> con más de 5 años de experiencia
+      en el desarrollo de aplicaciones web escalables. Especializado en <strong
         >Symfony</strong
       > y <strong>Angular</strong>, con experiencia en integración de APIs REST,
       arquitectura Hexagonal, DDD. Actualmente formo parte del equipo de <strong
@@ -36,6 +36,12 @@ import SocialPill from "@/components/SocialPill.astro";
     </p>
 
     <nav class="flex flex-wrap gap-4 mt-8">
+      <a
+        href="/curriculum"
+        class="rounded-full bg-[#0a2540] px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 dark:bg-yellow-500 dark:hover:bg-yellow-600"
+      >
+        Ver mi currículum
+      </a>
       <SocialPill href="mailto:antoniocarrerasalarcon@gmail.com">
         <MailIcon class="size-4" />
         Contáctame

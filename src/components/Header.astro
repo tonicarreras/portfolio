@@ -43,14 +43,9 @@ const navItems = [
     animation-timeline: scroll();
     animation-range: 0 100px;
 
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(79, 79, 79, 0.32); 
   }
 
-  @media (prefers-color-scheme: dark) {
-    nav {
-      background-color: rgba(31, 41, 55, 0.9); /* equivalente a gray-800/90 */
-    }
-  }
 
   @keyframes nav-shadow {
     0% {
@@ -58,7 +53,6 @@ const navItems = [
     }
 
     100% {
-      /* sombra + anillo + desenfoque */
       box-shadow:
         0 10px 15px -3px rgba(0, 0, 0, 0.1),
         0 4px 6px -2px rgba(0, 0, 0, 0.05);
