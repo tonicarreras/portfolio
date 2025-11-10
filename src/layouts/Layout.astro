@@ -4,6 +4,7 @@ import "@fontsource-variable/onest";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ClientRouter } from "astro:transitions";
+import SpotifyPlayer from "@/components/SpotifyPlayer.astro";
 
 interface Props {
   title: string;
@@ -22,7 +23,6 @@ const { description, title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <ClientRouter />
   </head>
 
   <body class="relative text-black dark:text-white">
@@ -36,9 +36,13 @@ const { description, title } = Astro.props;
     <main>
       <slot />
     </main>
+    <SpotifyPlayer/>
+
     <Footer />
     <style is:global>
-      @import "tailwindcss";
+        @import 'tailwindcss';
+
+        @custom-variant dark (&:where(.dark, .dark *));
 
       :root {
         color-scheme: light dark;

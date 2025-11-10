@@ -1,4 +1,5 @@
 ---
+import Carousel from "@/components/Carousel.astro";
 import ProfileCheck from "@/components/icons/ProfileCheck.astro";
 import MainContainer from "@/components/MainContainer.astro";
 import TitleSection from "@/components/TitleSection.astro";
@@ -17,7 +18,7 @@ const personalImageAlt = "Antonio Carreras";
     </TitleSection>
 
     <article
-      class="flex flex-col items-center justify-center gap-10 text-gray-700 dark:text-gray-300 md:flex-row"
+      class="flex flex-col items-center justify-center gap-10 text-gray-700 dark:text-gray-300 md:flex-row  mb-4"
     >
       <div
         class="order-2 md:order-1 max-w-xl [&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty"
@@ -48,6 +49,10 @@ const personalImageAlt = "Antonio Carreras";
           o explorando nuevas formas de creatividad. Me inspiran los proyectos
           que mezclan <strong>tecnología, arte y personas</strong>.
         </p>
+
+        <p>
+          Y como no todo en la vida es código, también te dejo una pequeña parte de mí fuera del trabajo: momentos, aficiones y música que me inspiran.
+        </p>
       </div>
 
       <!-- Imagen -->
@@ -60,5 +65,8 @@ const personalImageAlt = "Antonio Carreras";
         style="object-position: 50% 50%"
       />
     </article>
+
+    <Carousel/>
+
   </MainContainer>
 </Layout>
