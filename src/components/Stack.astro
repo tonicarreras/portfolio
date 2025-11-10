@@ -1,21 +1,192 @@
 ---
-import GitHub from "./icons/GitHub.astro";
 import Tailwind from "./icons/Tailwind.astro";
+import Nx from "./icons/Nx.astro";
+import Angular from "./icons/Angular.astro";
+import Symfony from "./icons/Symfony.astro";
+import MySql from "./icons/MySql.astro";
+import GitHub from "./icons/GitHub.astro";
+import Docker from "./icons/Docker.astro";
+import Storybook from "./icons/Storybook.astro";
 
-import Badge from "./Badge.astro";
-
-const TAGS = {
-  TAILWIND: {
+const FRONTEND_STACK = [
+  {
+    name: "Angular",
+    description:
+      "Framework para construir aplicaciones web robustas y escalables con TypeScript. Lo utilizo especialmente en proyectos enterprise donde la arquitectura y la mantenibilidad son clave.",
+    class: "bg-[#1D173A] text-white",
+    icon: Angular,
+    link: "https://angular.dev/",
+  },
+  {
     name: "Tailwind CSS",
+    description:
+      "Framework CSS utility-first para crear interfaces modernas, consistentes y responsive de forma rápida y altamente personalizable.",
     class: "bg-[#003159] text-white",
     icon: Tailwind,
+    link: "https://tailwindcss.com/",
   },
-};
+  {
+    name: "Nx",
+    description:
+      "Herramienta para gestionar monorepos que permite organizar múltiples proyectos y librerías compartidas con una arquitectura modular y escalable.",
+    class: "bg-black text-white",
+    icon: Nx,
+    link: "https://nx.dev/",
+  },
+  {
+    name: "Storybook",
+    description:
+      "Entorno para desarrollar, documentar y probar componentes UI de forma aislada, asegurando consistencia visual y mejor comunicación entre diseño y desarrollo.",
+    class: "bg-[#5E2749] text-white",
+    icon: Storybook,
+    link: "https://storybook.js.org/",
+  },
+];
 
+const BACKEND_STACK = [
+  {
+    name: "Symfony",
+    description:
+      "Framework PHP orientado a aplicaciones empresariales. Ofrece una arquitectura sólida basada en componentes reutilizables y un ecosistema maduro para backend escalable.",
+    class: "bg-black text-white",
+    icon: Symfony,
+    link: "https://symfony.com/",
+  },
+  {
+    name: "MySql",
+    description:
+      "Sistema de gestión de bases de datos relacional que empleo para almacenamiento persistente, consultas optimizadas y manejo de transacciones en aplicaciones de alta demanda.",
+    class: "bg-[#F6F6F6] text-[#00618A]",
+    icon: MySql,
+    link: "https://www.mysql.com/",
+  },
+];
+
+const TOOLS = [
+  {
+    name: "GitHub",
+    description:
+      "Plataforma de desarrollo colaborativo que utilizo para control de versiones, gestión de repositorios, automatización CI/CD y trabajo en equipo mediante Git.",
+    class: "bg-black text-white",
+    icon: GitHub,
+    link: "https://github.com/",
+  },
+  {
+    name: "Docker",
+    description:
+      "Plataforma de contenedores para crear entornos reproducibles, aislar servicios y facilitar despliegues tanto en desarrollo como en producción.",
+    class: "bg-[#3E6E93] text-white",
+    icon: Docker,
+    link: "https://www.docker.com/",
+  },
+];
 ---
 
+<div class="flex flex-col gap-y-16">
+  <section>
+    <h2
+      class="text-xl font-semibold mb-6 text-gray-800 dark:text-gray-100 mt-4"
+    >
+      Frontend
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        FRONTEND_STACK.map(
+          ({ name, description, class: tagClass, icon: Icon, link }) => (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="relative border border-gray-200 dark:border-gray-700 rounded-lg p-6 bg-white dark:bg-gray-800/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group overflow-hidden block"
+            >
+              <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div class="relative z-10">
+                <div class="flex items-center gap-x-3 mb-4">
+                  <span
+                    class={`flex gap-x-2 rounded-full text-sm ${tagClass} py-2 px-4 whitespace-nowrap`}
+                  >
+                    <Icon class="size-5" />
+                    {name}
+                  </span>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                  {description}
+                </p>
+              </div>
+            </a>
+          ),
+        )
+      }
+    </div>
+  </section>
 
-  frontend
+  <section>
+    <h2 class="text-xl font-semibold mb-6 text-gray-800 dark:text-gray-100">
+      Backend
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        BACKEND_STACK.map(
+          ({ name, description, class: tagClass, icon: Icon, link }) => (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="relative border border-gray-200 dark:border-gray-700 rounded-lg p-6 bg-white dark:bg-gray-800/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group overflow-hidden block"
+            >
+              <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div class="relative z-10">
+                <div class="flex items-center gap-x-3 mb-4">
+                  <span
+                    class={`flex gap-x-2 rounded-full text-sm ${tagClass} py-2 px-4 whitespace-nowrap`}
+                  >
+                    <Icon class="size-5" />
+                    {name}
+                  </span>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                  {description}
+                </p>
+              </div>
+            </a>
+          ),
+        )
+      }
+    </div>
+  </section>
 
-
-  backend
+  <section>
+    <h2 class="text-xl font-semibold mb-6 text-gray-800 dark:text-gray-100">
+      Tools
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        TOOLS.map(
+          ({ name, description, class: tagClass, icon: Icon, link }) => (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="relative border border-gray-200 dark:border-gray-700 rounded-lg p-6 bg-white dark:bg-gray-800/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group overflow-hidden block"
+            >
+              <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div class="relative z-10">
+                <div class="flex items-center gap-x-3 mb-4">
+                  <span
+                    class={`flex gap-x-2 rounded-full text-sm ${tagClass} py-2 px-4 whitespace-nowrap`}
+                  >
+                    <Icon class="size-5" />
+                    {name}
+                  </span>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                  {description}
+                </p>
+              </div>
+            </a>
+          ),
+        )
+      }
+    </div>
+  </section>
+</div>
