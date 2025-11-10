@@ -19,26 +19,35 @@ const { description, title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Toni Carreras - Portfolio</title>
-    <meta
-      name="description"
-      content="Portfolio profesional de Toni Carreras - Desarrollador Web"
-    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <ClientRouter />
   </head>
 
-  <body class="relative">
+  <body class="relative min-h-screen flex flex-col">
+    <!-- Background decorativo -->
     <div
-      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-200 dark:bg-gray-950
+      class="fixed inset-0 z-[-2] bg-gray-200 dark:bg-gray-950
       bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
       dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+      aria-hidden="true"
     >
     </div>
+
+    <!-- Header sticky o fijo -->
     <Header />
-    <main>
+
+    <!-- Main content con flex-grow para empujar el footer al fondo -->
+    <main class="flex-grow w-full">
       <slot />
     </main>
-    <SpotifyPlayer />
+
+    <!-- Footer siempre al final -->
     <Footer />
+
+    <!-- Spotify Player persistente -->
+    <SpotifyPlayer />
+
     <style is:global>
       @import "../styles/global.css";
     </style>
