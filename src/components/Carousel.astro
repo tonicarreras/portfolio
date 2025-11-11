@@ -1,12 +1,18 @@
 ---
 // Carousel.astro
+// Carousel.astro
 const photos = [
-    { src: "/img/paseo.png", alt: "Descripción foto 1" },
-    { src: "/img/perro.png", alt: "Descripción foto 2" },
-    { src: "/img/oleaje.png", alt: "Descripción foto 3" },
-    { src: "/img/burbuja.png", alt: "Descripción foto 4" },
-    { src: "/img/barco.png", alt: "Descripción foto 5" },
+  { src: "/img/cope.jpg", alt: "Casas de colores en Copenhague" },
+  { src: "/img/olas.jpg", alt: "Olas rompiendo con fuerza en la costa durante una tormenta" },
+  { src: "/img/paseo.jpg", alt: "Camino rodeado de árboles en un bosque verde y frondoso" },
+  { src: "/img/puesta.jpg", alt: "Silueta observando la puesta de sol" },
+  { src: "/img/barco.jpg", alt: "Barco navegando frente al atardecer en el mar" },
+  { src: "/img/vinyl.jpg", alt: "Tocadiscos reproduciendo un vinilo iluminado por luz azul" },
+  { src: "/img/turron.jpg", alt: "Turrón con una pelota amarilla en la boca" },
+  { src: "/img/burbuja.jpg", alt: "Niño jugando y soplando una burbuja transparente al aire" },
+  { src: "/img/church.jpg", alt: "Churchill" }
 ];
+
 ---
 
 <section class="w-full">
@@ -99,7 +105,6 @@ const photos = [
 
         const totalSlides = indicators.length;
         let currentIndex = 0;
-        let autoplayInterval: NodeJS.Timeout;
 
         function updateCarousel(index: number) {
             currentIndex = index;
@@ -143,26 +148,8 @@ const photos = [
                 updateCarousel(index);
             });
         });
-
-        // Auto-play
-        autoplayInterval = setInterval(nextSlide, 5000);
-
-        track.addEventListener("mouseenter", () =>
-            clearInterval(autoplayInterval),
-        );
-        track.addEventListener(
-            "mouseleave",
-            () => (autoplayInterval = setInterval(nextSlide, 5000)),
-        );
-
         // Initialize
         updateCarousel(0);
-
-        document.addEventListener(
-            "astro:before-swap",
-            () => clearInterval(autoplayInterval),
-            { once: true },
-        );
     }
 
     initCarousel();

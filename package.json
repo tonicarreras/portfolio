@@ -13,6 +13,7 @@
     "@fontsource-variable/onest": "^5.2.11",
     "@tailwindcss/vite": "^4.1.17",
     "astro": "^5.15.4",
+    "astro-vtbot": "^2.1.9",
     "tailwindcss": "^4.1.17"
   }
 }

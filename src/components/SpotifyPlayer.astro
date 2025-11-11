@@ -6,7 +6,6 @@
 <div
     id="spotify-player-container"
     class="fixed bottom-12 right-6 z-50 transition-all duration-300"
-    transition:persist="spotify-player"
 >
     <!-- Botón minimizado - VISIBLE POR DEFECTO -->
     <button
@@ -63,10 +62,10 @@
         <!-- Spotify Embed -->
         <div class="p-0">
             <iframe
+                id="spotify-iframe"
                 style="border-radius: 0; width: 100%; height: 352px;"
                 src="https://open.spotify.com/embed/playlist/0nT6dG81A2IRG78sAzZP47?utm_source=generator&theme=0"
-                allowfullscreen=""
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture;"
                 loading="lazy"
                 title="Spotify playlist"></iframe>
         </div>
@@ -83,7 +82,7 @@
         if (!container || !toggleBtn || !minimizeBtn || !expanded) return;
 
         const savedState = localStorage.getItem("spotify-minimized");
-                if (savedState === null || savedState === "true") {
+        if (savedState === null || savedState === "true") {
             expanded.classList.add("hidden");
             toggleBtn.classList.remove("hidden");
             localStorage.setItem("spotify-minimized", "true");

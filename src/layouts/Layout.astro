@@ -1,9 +1,10 @@
 ---
+// Layout.astro
 import "@fontsource-variable/onest";
-
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ClientRouter } from "astro:transitions";
+import ReplacementSwap from "astro-vtbot/components/ReplacementSwap.astro";
 import SpotifyPlayer from "@/components/SpotifyPlayer.astro";
 
 interface Props {
@@ -21,6 +22,9 @@ const { description, title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="icon" type="image/svg" href="/public/favicon.svg" />
+    <ClientRouter />
+    <ReplacementSwap />
   </head>
 
   <body class="relative min-h-screen flex flex-col">
@@ -32,8 +36,7 @@ const { description, title } = Astro.props;
     >
     </div>
     <Header />
-    <main class="flex-grow w-full">
-      <ClientRouter />
+    <main class="flex-grow w-full" data-vtbot-replace="main">
       <slot />
     </main>
     <Footer />
