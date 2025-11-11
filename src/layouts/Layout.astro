@@ -21,11 +21,9 @@ const { description, title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <ClientRouter />
   </head>
 
   <body class="relative min-h-screen flex flex-col">
-    <!-- Background decorativo -->
     <div
       class="fixed inset-0 z-[-2] bg-gray-200 dark:bg-gray-950
       bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
@@ -33,21 +31,13 @@ const { description, title } = Astro.props;
       aria-hidden="true"
     >
     </div>
-
-    <!-- Header sticky o fijo -->
     <Header />
-
-    <!-- Main content con flex-grow para empujar el footer al fondo -->
     <main class="flex-grow w-full">
+      <ClientRouter />
       <slot />
     </main>
-
-    <!-- Footer siempre al final -->
     <Footer />
-
-    <!-- Spotify Player persistente -->
     <SpotifyPlayer />
-
     <style is:global>
       @import "../styles/global.css";
     </style>
