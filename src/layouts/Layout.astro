@@ -22,7 +22,7 @@ const { description, title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="icon" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <ClientRouter />
     <ReplacementSwap />
   </head>
@@ -35,11 +35,13 @@ const { description, title } = Astro.props;
       aria-hidden="true"
     >
     </div>
-    <Header />
-    <main class="flex-grow w-full" data-vtbot-replace="main">
-      <slot />
-    </main>
-    <Footer />
+    <div data-vtbot-replace="content">
+      <Header />
+      <main class="flex-grow w-full">
+        <slot />
+      </main>
+      <Footer />
+    </div>
     <SpotifyPlayer />
     <style is:global>
       @import "../styles/global.css";
