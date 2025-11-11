@@ -21,7 +21,9 @@ const navItems = [
       {
         navItems.map((link) => (
           <a
-            class={`nav-link relative text-nowrap block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500 ${currentPath === link.url ? "text-blue-500" : ""}`}
+            class={`relative text-nowrap block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500 ${
+              currentPath === link.url ? "text-blue-500" : ""
+            }`}
             aria-label={link.label}
             href={link.url}
           >
@@ -34,20 +36,6 @@ const navItems = [
     <ThemeToggle/>
 
 </header>
-
-<script is:inline>
-  function marcarActivo() {
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.classList.remove('text-blue-500', 'font-bold');
-      if (link.getAttribute('href') === location.pathname) {
-        link.classList.add('text-blue-500', 'font-bold');
-      }
-    });
-  }
-  marcarActivo(); // Al cargar
-  window.addEventListener('astro:after-swap', marcarActivo);
-  window.addEventListener('popstate', marcarActivo);
-</script>
 
 <style>
   nav {
